@@ -1,3 +1,4 @@
+import { PagesModule } from './pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,11 +9,11 @@ import { PagesComponent } from './pages/pages.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
