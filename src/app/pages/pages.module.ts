@@ -8,7 +8,6 @@ import { PagesComponent } from './pages.component';
   declarations: [
     LinksComponent,
     PagesComponent,
-    LinksComponent
   ],
   imports: [
     CommonModule,

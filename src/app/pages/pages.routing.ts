@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LinksComponent } from './links/links.component';
 
 const routes: Routes = [{
-    path: 'links',
+    path: '',
     component: PagesComponent,
     children: [
         { path: '', component: LinksComponent }
