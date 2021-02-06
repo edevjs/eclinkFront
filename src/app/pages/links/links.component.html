@@ -1,5 +1,18 @@
-<ul *ngFor="let link of links?.links">
-  <li>
-    <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-  </li>
-</ul>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let link of links?.links" class="col-md-3 col-sm-6 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text"><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+    </div>
+  </div>
+</section>
