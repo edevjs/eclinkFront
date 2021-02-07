@@ -18,6 +18,6 @@ export class LinksService {
 
   getAllLinks(): Observable<any> {    
     return this.http
-      .get<any>("http://localhost:3000/api/link");
+      .get<any>("https://eclink2.herokuapp.com/api/link");
   }
 }
