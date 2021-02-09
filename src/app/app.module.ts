@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppRoutingModule,
     HttpClientModule,
     PagesModule,
+    AuthModule
     
   ],
   providers: [],

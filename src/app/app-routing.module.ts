@@ -1,13 +1,15 @@
 import { PagesRouterModule } from './pages/pages.routing';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthRoutingModule } from './auth/auth.routing';
 
 const routes: Routes = [];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    PagesRouterModule
+    PagesRouterModule,
+    AuthRoutingModule
   
   ],
   exports: [RouterModule]
