@@ -2,7 +2,6 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 
 @Component({
@@ -46,7 +45,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/']);
     },
     (error) => {
-      Swal.fire('Error', error.error.msg, 'error')
+      // Swal.fire('Error', error.error.msg, 'error')
     });
 
 

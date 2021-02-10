@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import Swal from 'sweetalert2'
 
 declare const gapi: any;
 
@@ -49,7 +48,7 @@ export class LoginComponent implements OnInit {
 
     },
     (error) => {
-      Swal.fire('Error', error.error.msg, 'error')
+      // Swal.fire('Error', error.error.msg, 'error')
     });
   }
 
