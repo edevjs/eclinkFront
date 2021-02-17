@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { environment } from './../../environments/environment';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,14 +10,29 @@ import { Injectable } from '@angular/core';
 })
 export class LinksService {
 
+
   constructor(
     private http: HttpClient
   ) { }
 
   private store$ = new BehaviorSubject<any>([]);
 
-  getAllLinks(): Observable<any> {    
-    return this.http
-      .get<any>("https://eclink2.herokuapp.com/api/link");
+  getAllLinks(): Observable<any> {
+    const token = localStorage.getItem('token') || '';
+    return this.http.get<any>(`${environment.base_url}/link`, {
+        headers: {
+          'x-token': token
+        }
+      });
+  }
+
+  saveLinks(payload) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.post<any>(`${environment.base_url}/link`, payload, {
+      headers: {
+        'x-token': token
+      }
+    });
   }
 }

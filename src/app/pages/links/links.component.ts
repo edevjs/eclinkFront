@@ -17,13 +17,14 @@ export class LinksComponent implements OnInit {
     public appService: AppService
   ) {
 
-    this.linksService.getAllLinks().subscribe( links => {
-      this.links = links;
-    });
+   
 
   }
 
   ngOnInit() {
+    this.linksService.getAllLinks().subscribe( links => {
+      this.links = links;
+    });
   }
 
 }
