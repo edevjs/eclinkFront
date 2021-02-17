@@ -1,7 +1,6 @@
 import { LinksService } from './../../services/links.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-head',
@@ -10,7 +9,7 @@ import { startWith } from 'rxjs/operators';
 })
 export class HeadComponent implements OnInit {
 
-  private textoCopiado: string = '';
+  public textoCopiado: string = '';
 
   public fastLinkForm = this.formBuilder.group({
     url: ['' ],
@@ -25,7 +24,7 @@ export class HeadComponent implements OnInit {
 
   ngOnInit() {
 
-    navigator.clipboard.readText().then(texto => {
+    (navigator as Navigator).clipboard.readText().then(texto => {
         if( texto && (texto.startsWith('http://') || texto.startsWith('https://'))){
           this.textoCopiado = texto;
           this.fastLinkForm.controls['url'].setValue(this.textoCopiado);
