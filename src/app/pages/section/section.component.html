@@ -1,0 +1,53 @@
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <app-newsection [section]="sectionEdit" (changeSections)="changeSections()"></app-newsection>
+      
+    </div>
+
+
+    <!-- 
+      <div class="row">
+      <div *ngFor="let section of sections?.sections" class="col-md-3 col-sm-6 col-12">
+        <div class="info-box" style="min-height: 45px;" [style.backgroundColor]="section.color">
+
+          <div class="info-box-content">
+            <span class="info-box-text" [style.color]="getTextColor(section.color)">{{ section.name }}</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div *ngFor="let section of sections?.sections" class="col-md-3 col-sm-6 col-12">
+      <span [style.backgroundColor]="section.color" [style.color]="getTextColor(section.color)" class="badge">{{ section.name }}</span>
+    </div> 
+  -->
+
+    <div class="row">
+      <div *ngFor="let section of sections?.sections" class="col-md-3 col-sm-6 col-12">
+      <div class="btn-group" style="margin: 10px; width: 100%;">
+        <button type="button" class="btn" [style.backgroundColor]="section.color" [style.color]="getTextColor(section.color)" style="width: 90%;">{{ section.name }}</button>
+        <button type="button" class="btn dropdown-toggle dropdown-icon" [style.backgroundColor]="section.color" [style.color]="getTextColor(section.color)" data-toggle="dropdown">
+          <!-- <span class="sr-only">Toggle Dropdown</span> -->
+        </button>
+        <div class="dropdown-menu" role="menu">
+          <a class="dropdown-item" data-toggle="modal" data-target="#modal-sections" (click)="editSection(section)" style="cursor: pointer" >Edit</a>
+          <a class="dropdown-item" href="#">Delete</a>
+          <!-- <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+
+  
+</section>
+

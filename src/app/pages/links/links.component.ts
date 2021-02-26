@@ -1,3 +1,4 @@
+import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { AppService } from './../../services/app.service';
 import { LinksService } from './../../services/links.service';
 
@@ -25,6 +26,11 @@ export class LinksComponent implements OnInit {
     this.linksService.getAllLinks().subscribe( links => {
       this.links = links;
     });
+  }
+
+  getTextColor(color: string) {
+    const brightness = color ? CommonUtils.brightnessByColor(color) : 255;
+    return brightness > 125 ? '#000' : '#fff';
   }
 
 }

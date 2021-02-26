@@ -1,0 +1,37 @@
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-sections">
+  New section
+</button>
+
+<!-- modal window for sections -->
+<div #modalsections class="modal fade" id="modal-sections">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Section</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <form id="sectionForm" (ngSubmit)="saveSection()" autocomplete="off" [formGroup]="sectionForm" method="post">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Name of section..." formControlName="name">
+              </div>
+              <div class="form-group">
+                <label for="colorpicker">Color:</label>
+                <input type="color" id="colorpicker" formControlName="color">
+              </div>
+              <ng-selectize ></ng-selectize>
+          </form>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button #closebutton type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="submit" form="sectionForm" [disabled]="!sectionForm.valid">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

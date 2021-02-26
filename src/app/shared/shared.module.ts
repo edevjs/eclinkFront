@@ -3,10 +3,11 @@ import { RouterModule } from '@angular/router';
 import { HeadComponent } from './head/head.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CommonUtils } from './utils/common.utils';
 
 @NgModule({
   declarations: [
-    HeadComponent
+    HeadComponent,
   ],
   imports: [
     CommonModule,
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
   ],
   exports:[
-    HeadComponent
+    HeadComponent,
   ]
 })
 export class SharedModule { }

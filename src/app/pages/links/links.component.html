@@ -1,6 +1,7 @@
 
 <section class="content">
   <div class="container-fluid">
+    <app-newlink></app-newlink>
     <div class="row">
       <div *ngFor="let link of links?.links" class="col-md-3 col-sm-6 col-12">
         <div class="info-box">
@@ -8,6 +9,9 @@
 
           <div class="info-box-content">
             <span class="info-box-text"><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></span>
+            <div *ngFor="let section of link?.sections" class="col-md-3 col-sm-6 col-12">
+              <span [style.backgroundColor]="section.color" [style.color]="getTextColor(section.color)" class="badge">{{ section.name }}</span>
+            </div> 
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -16,3 +20,5 @@
     </div>
   </div>
 </section>
+
+
