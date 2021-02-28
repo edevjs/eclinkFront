@@ -14,23 +14,33 @@
       </div>
       <div class="modal-body">
         
-          <form id="sectionForm" (ngSubmit)="saveSection()" autocomplete="off" [formGroup]="sectionForm" method="post">
+          <form id="linkForm" (ngSubmit)="saveLink()" autocomplete="off" [formGroup]="linkForm" method="post">
             <div class="card-body">
               <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Name of section..." formControlName="name">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" placeholder="Title of link..." formControlName="title">
               </div>
               <div class="form-group">
-                <label for="colorpicker">Color:</label>
-                <input type="color" id="colorpicker" formControlName="color">
+                <label for="title">Url:</label>
+                <input type="text" class="form-control" id="url" placeholder="Url of link..." formControlName="url">
               </div>
-              <ng-selectize ></ng-selectize>
-          </form>
 
+ 
+              <ng-multiselect-dropdown
+                [placeholder]="'Select a seccions'"
+                [data]="sectionsList"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                formControlName="sections"
+              >
+              </ng-multiselect-dropdown>
+            </div>
+          </form>
       </div>
       <div class="modal-footer justify-content-between">
         <button #closebutton type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary" type="submit" form="sectionForm" [disabled]="!sectionForm.valid">Save changes</button>
+        <button class="btn btn-primary" type="submit" form="linkForm" [disabled]="!linkForm.valid">Save changes</button>
       </div>
     </div>
   </div>

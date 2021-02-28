@@ -8,7 +8,7 @@ import { PagesComponent } from './pages.component';
 import { SectionComponent } from './section/section.component';
 import { NewsectionComponent } from './section/newsection/newsection.component';
 import { NewlinkComponent } from './links/newlink/newlink.component';
-import { NgSelectizeComponent } from 'ng-selectize';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { NgSelectizeComponent } from 'ng-selectize';
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    NgSelectizeComponent
+    NgMultiSelectDropDownModule.forRoot()
   ],
   exports: [
     PagesComponent,
