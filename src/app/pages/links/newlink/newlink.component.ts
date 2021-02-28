@@ -1,8 +1,6 @@
-import { SectionService } from './../../../services/section.service';
 import { SectionService } from 'src/app/services/section.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-newlink',
