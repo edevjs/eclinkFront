@@ -13,12 +13,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class LinksComponent implements OnInit {
 
   links;
+  linkEdit;
 
   constructor(
     private linksService: LinksService,
     public appService: AppService,
     private sanitizer: DomSanitizer
   ) {
+
+   
+
   }
 
   ngOnInit() {
