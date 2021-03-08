@@ -1,6 +1,6 @@
-import { LinksService } from './../../../services/links.service';
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { LinksService } from 'src/app/services/links.service';
 
 @Component({
   selector: 'app-viewlinks',

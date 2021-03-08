@@ -216,6 +216,16 @@ html.maximized-card {
   padding: (($card-spacer-y / 2) * 2) $card-spacer-x;
   position: relative;
 
+  height: 200px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  background-size: 100%;
+  transition: all 0.3s ease-in-out;
+
+
   @if $enable-rounded {
     @include border-top-radius($border-radius);
   }
@@ -238,6 +248,13 @@ html.maximized-card {
     [data-toggle="tooltip"] {
       position: relative;
     }
+  }
+
+  &:hover {
+    opacity: 0.8;
+    background-size: 115%;
+    -webkit-transition: all 0.3s ease-in-out;
+    
   }
 }
 
