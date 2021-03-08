@@ -45,4 +45,9 @@ export class HeadComponent implements OnInit {
     });
   }
 
+  search(text) {
+    console.log(text);
+    this.linksService.search(text);
+  }
+
 }

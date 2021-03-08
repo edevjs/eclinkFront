@@ -3,6 +3,7 @@ import { AppService } from './../../services/app.service';
 import { LinksService } from './../../services/links.service';
 
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-links',
@@ -15,11 +16,9 @@ export class LinksComponent implements OnInit {
 
   constructor(
     private linksService: LinksService,
-    public appService: AppService
+    public appService: AppService,
+    private sanitizer: DomSanitizer
   ) {
-
-   
-
   }
 
   ngOnInit() {
@@ -28,9 +27,10 @@ export class LinksComponent implements OnInit {
     });
   }
 
-  getTextColor(color: string) {
-    const brightness = color ? CommonUtils.brightnessByColor(color) : 255;
-    return brightness > 125 ? '#000' : '#fff';
+  changeLinks() {
+    this.linksService.getAllLinks().subscribe( links => {
+      this.links = links;
+    });
   }
 
 }

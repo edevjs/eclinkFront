@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ViewlinksComponent } from './pages/links/viewlinks/viewlinks.component';
 
 @NgModule({
   declarations: [

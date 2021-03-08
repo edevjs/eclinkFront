@@ -11,7 +11,7 @@ import { CommonUtils } from 'src/app/shared/utils/common.utils';
 export class SectionComponent implements OnInit {
 
 
-  sections: any[];
+  sections;
   sectionEdit;
 
   constructor(

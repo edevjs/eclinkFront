@@ -9,6 +9,7 @@ import { SectionComponent } from './section/section.component';
 import { NewsectionComponent } from './section/newsection/newsection.component';
 import { NewlinkComponent } from './links/newlink/newlink.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ViewlinksComponent } from './links/viewlinks/viewlinks.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     SectionComponent,
     NewsectionComponent,
     NewlinkComponent,
+    ViewlinksComponent
   ],
   imports: [
     CommonModule,
