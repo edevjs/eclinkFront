@@ -45,6 +45,14 @@ export class NewlinkComponent implements OnInit, OnChanges {
         console.log(this.sectionsList);
       }
     });
+
+    this.linkService.editLinkEmitter.subscribe( link=> {
+      console.log(`link :: ${link}`)
+      this.link = link;
+      this.linkForm.patchValue(this.link);
+    })
+
+
    
     this.dropdownSettings = {
       singleSelection: false,
@@ -58,12 +66,12 @@ export class NewlinkComponent implements OnInit, OnChanges {
 
   }
 
-  ngOnChanges() {
-    if(this.link) {
-      console.log(this.link);
-      this.linkForm.patchValue(this.link)
-    }
-  }
+  // ngOnChanges() {
+  //   if(this.link) {
+  //     console.log(this.link);
+  //     this.linkForm.patchValue(this.link);
+  //   }
+  // }
 
   createLink() {
     this.resetForm();

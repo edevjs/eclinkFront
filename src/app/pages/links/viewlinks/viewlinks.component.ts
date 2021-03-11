@@ -1,5 +1,5 @@
 import { CommonUtils } from 'src/app/shared/utils/common.utils';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { LinksService } from 'src/app/services/links.service';
 
 @Component({
@@ -10,7 +10,6 @@ import { LinksService } from 'src/app/services/links.service';
 export class ViewlinksComponent implements OnChanges {
 
   @Input() links;
-  linkEdit
   backupLinks;
 
   constructor(
@@ -38,7 +37,7 @@ export class ViewlinksComponent implements OnChanges {
   }
   
   editLink (link) {
-    this.linkEdit = link;
+    this.linksService.editLink(link);
   }
 
   clear() {

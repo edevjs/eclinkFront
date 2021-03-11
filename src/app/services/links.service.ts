@@ -8,7 +8,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 export class LinksService {
 
   @Output() textSearchEmitter: EventEmitter<string> = new EventEmitter();
-  public onChange: EventEmitter<string> = new EventEmitter();
+  @Output() editLinkEmitter: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private api: ApiService
@@ -24,6 +24,10 @@ export class LinksService {
 
   search(text: string) {
     this.textSearchEmitter.emit(text);
+  }
+
+  editLink(link: any) {
+    this.editLinkEmitter.emit(link);
   }
 
 }
