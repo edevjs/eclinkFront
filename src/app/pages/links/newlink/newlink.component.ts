@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, Output } from '@angular/core';
   templateUrl: './newlink.component.html',
   styleUrls: ['./newlink.component.sass']
 })
-export class NewlinkComponent implements OnInit, OnChanges {
+export class NewlinkComponent implements OnInit {
 
   @ViewChild('closebutton') closebutton;
 
@@ -53,7 +53,7 @@ export class NewlinkComponent implements OnInit, OnChanges {
     })
 
 
-   
+
     this.dropdownSettings = {
       singleSelection: false,
       idField: '_id',
@@ -61,17 +61,12 @@ export class NewlinkComponent implements OnInit, OnChanges {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 4,
-      allowSearchFilter: true
+      allowSearchFilter: true,
+      enableCheckAll: false,
+      limitSelection: 4
     };
 
   }
-
-  // ngOnChanges() {
-  //   if(this.link) {
-  //     console.log(this.link);
-  //     this.linkForm.patchValue(this.link);
-  //   }
-  // }
 
   createLink() {
     this.resetForm();

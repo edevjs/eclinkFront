@@ -1,13 +1,13 @@
 <div class="row">
 
-  <div *ngFor="let link of links?.links" class="col-md-4">
+  <div *ngFor="let link of links?.links" class="col-lg-3 col-md-4 col-sm-6">
     <div class="card card-widget widget-user">
       <a class="card-header" [style.background-image]="'url(data:image/png;base64,' + link.image  + ')'" href="{{ link.url }}" target="_blank">
         <!-- <img width="100%" *ngIf="link.image" [src]="'data:image/png;base64,' + link.image" style="border: 1px solid #ddd"> -->
       </a>
       <div class="card-footer" style="padding-top: 10px; display: inline-block;">
         <h3><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></h3>
-        <div style="display: inline-block; width: 80%;">
+        <div style="display: inline-block; width: 75%;">
           <span *ngFor="let section of link?.sections" 
             style="margin: 5px" 
             [style.backgroundColor]="section.color" 
@@ -16,9 +16,9 @@
               {{ section.name }}
             </span>
         </div> 
-        <div style="width:20%; display: inline-block; vertical-align: top; text-align: right; ">
-          <a data-toggle="modal" data-target="#modal-links" (click)="editLink(link)" ><i class="fas fa-edit"></i></a>
-          <a  ><i class="fas fa-trash"></i></a>
+        <div style="width: 25%; display: inline-block; vertical-align: top; text-align: right; ">
+          <a href="#" class="p-2" data-toggle="modal" data-target="#modal-links" (click)="editLink(link)"><i class="fas fa-edit"></i></a>
+          <a href="#" class="p-2"><i class="fas fa-trash"></i></a>
         </div>
       </div>
     </div>

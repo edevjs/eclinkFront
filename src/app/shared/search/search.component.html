@@ -1,0 +1,21 @@
+<div class="content-wrapper">
+
+  <section class="content">
+      <div class="container-fluid">
+          <div class="row p-3">
+              <div class="col-md-8 offset-md-2">
+                  <form action="simple-results.html">
+                      <div class="input-group">
+                          <input #sear type="search" class="form-control form-control-lg" placeholder="Search yours links here" (keyup)="search(sear.value)">
+                          <div class="input-group-append">
+                              <button type="submit" class="btn btn-lg btn-default">
+                                  <i class="fa fa-search"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>

@@ -35,14 +35,48 @@
       <li class="nav-item">
         <a class="nav-link" href="#" [routerLink]="['/sections']" routerLinkActive="router-link-active" >Sections</a>
       </li>
+    </ul>
 
       <!-- <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li> -->
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <!-- <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a> -->
+        <a class="nav-link text-right" data-toggle="dropdown" href="#" aria-expanded="false">
+          <img *ngIf="user?.img" [src]="user.img" style="width: 32%;" />
+          <div *ngIf="!user?.img" style="border-radius: 50%; width: 32px; height: 32px; padding: 8px; background: #5C6BC0; color: #fff; text-align: center; font: 16px Arial, sans-serif; position: absolute; top: -8px; right: 6px;">
+            {{ txtUser }}
+          </div>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="width: 300px; padding: 0px;">
+          <div class=" card card-widget widget-user" style="margin-bottom: 0px;">
+            <div class="widget-user-header bg-info">
+              <h3 class="widget-user-username">{{user?.name}}</h3>
+              <h6 class="widget-user-desc">{{user?.email}}</h6>
+            </div>
+            <div class="widget-user-image">
+              <!-- <img class="img-circle elevation-2" src="" alt="User Avatar"> -->
+              <img *ngIf="user?.img" [src]="user.img" class="img-circle elevation-2">
+              <div *ngIf="!user?.img" class="img-circle elevation-2" style="width: 90px; height: 90px; padding: 10px; background: #5C6BC0; color: #fff; text-align: center; font: 55px Arial, sans-serif; border: 3px solid;">
+                {{ txtUser }}
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <button type="button" class="btn btn-outline-secondary" style="width: 100%; padding: 5px; margin: 7px;" (click)="logOut()">Log out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input #sear class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup)="search(sear.value)">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+
   </div>
 </nav>

@@ -1,13 +1,14 @@
+import { SearchComponent } from './search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HeadComponent } from './head/head.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommonUtils } from './utils/common.utils';
 
 @NgModule({
   declarations: [
     HeadComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -17,6 +18,7 @@ import { CommonUtils } from './utils/common.utils';
   ],
   exports:[
     HeadComponent,
+    SearchComponent
   ]
 })
 export class SharedModule { }

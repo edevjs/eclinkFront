@@ -21,7 +21,6 @@ export class LinksComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {
 
-   
 
   }
 

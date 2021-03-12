@@ -1,6 +1,9 @@
+import { User } from './../../models/user.model';
 import { LinksService } from './../../services/links.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-head',
@@ -9,7 +12,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  public textoCopiado: string = '';
+  textoCopiado = '';
+  user: User;
+  txtUser = '';
 
   public fastLinkForm = this.formBuilder.group({
     url: ['' ],
@@ -19,24 +24,31 @@ export class HeadComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private linksService: LinksService
+    private linksService: LinksService,
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
 
-    (navigator as Navigator).clipboard.readText().then(texto => {
-        if( texto && (texto.startsWith('http://') || texto.startsWith('https://'))){
-          this.textoCopiado = texto;
-          this.fastLinkForm.controls['url'].setValue(this.textoCopiado);
-        }
-      })
-      .catch(error => {
-        // Por si el usuario no da permiso u ocurre un error
-        console.log("Hubo un error: ", error);
-      });
+    // (navigator as Navigator).clipboard.readText().then(texto => {
+    //     if( texto && (texto.startsWith('http://') || texto.startsWith('https://'))){
+    //       this.textoCopiado = texto;
+    //       this.fastLinkForm.controls['url'].setValue(this.textoCopiado);
+    //     }
+    //   })
+    //   .catch(error => {
+    //     // Por si el usuario no da permiso u ocurre un error
+    //     console.log("Hubo un error: ", error);
+    //   });
+
+    this.userService.getUser().subscribe(data => {
+      this.user = data.user;
+      console.log(`user :: ${JSON.stringify(this.user)}`);
+      this.txtUser = this.user.name.substr(0, 1).toUpperCase();
+    });
 
   }
-
 
   saveFastLink() {
     console.log(this.fastLinkForm.value);
@@ -45,9 +57,9 @@ export class HeadComponent implements OnInit {
     });
   }
 
-  search(text) {
-    console.log(text);
-    this.linksService.search(text);
-  }
 
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
+  }
 }
