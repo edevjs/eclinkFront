@@ -1,7 +1,7 @@
 import { User } from './../../models/user.model';
 import { LinksService } from './../../services/links.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class HeadComponent implements OnInit {
   textoCopiado = '';
   user: User;
   txtUser = '';
+  numItemsMenu = 8;
 
   public fastLinkForm = this.formBuilder.group({
     url: ['' ],

@@ -3,14 +3,45 @@
 <section class="content">
   <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-md-12 p-3">
-        <app-newlink [link]="linkEdit" (changeLinks)="changeLinks()"></app-newlink>
-      </div>
-    </div>
+        
 
-    
-    <app-viewlinks [links]="links"></app-viewlinks>
+    <!-- <ul class="nav nav-tabs" style="padding: 0px 125px"> -->
+    <ul *ngIf="links" class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="#"  style="font-size: 13px;" (click)="selectTab()">All ({{ allLinks }})</a>
+      </li>
+      <!-- [style.borderBottom]="'2px solid' + category.color" -->
+      <li class="nav-item" *ngFor="let category of categories?.slice(0, numItemsMenu)" routerLinkActive="active" style="font-size: 13px;">
+        <a class="nav-link" href="#" (click)="selectTab(category?.id)">{{ category?.name }} ({{category?.count}})</a>
+      </li>
+      <li class="nav-item dropdown" style="font-size: 13px;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu">
+          <a *ngFor="let category of categories?.slice(numItemsMenu, categories?.lenght)" class="dropdown-item" href="#" style="font-size: 13px;" (click)="selectTab(category?.id)">
+            {{ category?.name }} ({{category?.count}})</a>
+        </div>
+      </li>
+
+
+
+
+      <li class="nav-item ml-auto">
+        <app-newlink [link]="linkEdit" (changeLinks)="changeLinks()"></app-newlink>
+      </li>
+    </ul>
+
+
+
+
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <app-viewlinks [links]="links"></app-viewlinks>
+      </div>
+      <div class="col-1"></div>
+    </div>
     
 
   </div>

@@ -31,7 +31,7 @@
     border-bottom-left-radius: $nav-tabs-border-radius;
     border-top-right-radius: 0;
     margin-right: -$nav-tabs-border-width;
-
+    
     @include hover-focus () {
       border-color: $gray-200 transparent $gray-200 $gray-200;
     }
